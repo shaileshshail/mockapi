@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: endpoint-server
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3307/mockapi
+    username: root
+    password: password
+    driver-class-name: 'com.mysql.cj.jdbc.Driver'
+
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+
+server:
+  port: 8030

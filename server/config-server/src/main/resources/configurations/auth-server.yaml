@@ -1,0 +1,28 @@
+keycloak:
+  realm: mockapi
+  domain: localhost:8081
+  adminClientId: admin-cli
+  adminClientSecret: LjWXNqPjgwR0HEcJXfmVHov0x4uGipc5
+  client: springboot-rest
+  urls:
+    auth: http://${keycloak.domain}
+
+spring:
+  application:
+    name: auth-server
+  profiles:
+    active: production
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${keycloak.domain}/realms/${keycloak.realm}
+
+
+jwt:
+  auth:
+    converter:
+      resource-id: springboot-rest
+
+server:
+  port: 8010

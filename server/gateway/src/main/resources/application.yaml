@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: api-gateway
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+
+
+openapi:
+  service:
+    title: resource-service doc
+    version: 1.0.0
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+server:
+  port: 8080
